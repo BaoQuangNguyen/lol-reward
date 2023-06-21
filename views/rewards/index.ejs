@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<table>
+<thead> <h2>Champ List</h2>
+<tr>
+  <th class="top">Name</th>
+  <th class="top">Role</th>
+  <th class="top">Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<% rewards.forEach(function(f) { %>
+  <tr>
+    <td class="bot"><a href="/rewards/<%=f.id%>"><%= f.name %></a></td>
+    <td class="bot"><%= f.role %></a></td>
+    <td class="bot"><%= f.difficulty %></td>
+    <td class='bot'><form action="/rewards/<%=f.id%>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete Champ"/>
+    </form></td>
+  </tr>
+<% }) %>
+</tbody>
+</table>
+
+<%- include('../partials/footer') %>

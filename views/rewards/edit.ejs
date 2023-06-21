@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Edit Page</h2>
+  <form action="/rewards/<%=reward.id%>?_method=PUT" method="POST">
+    <input type="text" name="name" value="<%=reward.name%>"/>
+    <select name="role">
+      <% ['Top', 'Jungle', 'Mid', 'ADC', 'Support'].forEach(function(option) { %>
+        <option value="<%= option %>" <%= option === reward.role ? 'selected' : '' %>><%= option %></option>
+      <% }) %>
+    </select>
+    <select name="difficulty">
+      <% ['Easy', 'Intermediate', 'Advanced'].forEach(function(option) { %>
+        <option value="<%= option %>" <%= option === reward.difficulty ? 'selected' : '' %>><%= option %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Update Champion</button>
+  </form>
+</body>
+</html>
+
+<%- include('../partials/footer') %>

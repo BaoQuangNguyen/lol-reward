@@ -4,8 +4,13 @@ const Schema = mongoose.Schema;
 
 const rewardSchema = new mongoose.Schema({
   name: String,
-  role: String,
-  difficulty: String
-})
+  role: { 
+    type: String,
+    enum: ['Top', 'Jungle', 'Mid', 'ADC', 'Support']
+   },
+  difficulty: {
+    type: String,
+    enum: ['Easy', 'Intermediate', 'Advanced']
+}, })
 
 module.exports = mongoose.model('Reward', rewardSchema);
